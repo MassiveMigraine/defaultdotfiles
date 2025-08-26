@@ -1,0 +1,15 @@
+set prompt = "%n@%m:%~%# "
+set autolist
+set history = 5000
+set savehist = (5000 merge)
+bindkey "^R" i-search-back
+
+if (-x /usr/bin/vim) then
+    setenv EDITOR vim
+else
+    setenv EDITOR vi
+endif
+
+alias ll 'ls -alh'
+set hostname = `echo $HOST | cut -d"." -f1`
+alias precmd 'printf "\033]0;%s:%s\007" $hostname `pwd`'
