@@ -8,6 +8,7 @@ set number
 set clipboard=unnamedplus
 
 "Tilebar at the top
-autocmd BufEnter * let &titlestring = ' ' . expand("%:t")             
+let s:host = split(hostname(), '\.')[0]
+autocmd BufEnter * let &titlestring = s:host . ' vim: ' . expand("%:t")             
 set title
 set t_Co=256
